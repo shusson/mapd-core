@@ -1891,7 +1891,7 @@ void MapDHandler::get_heap_profile(std::string& profile, const TSessionId& sessi
 }
 
 SessionMap::iterator MapDHandler::get_session_it(const TSessionId& session) {
-  auto session_it = sessions_.find(session);
+  auto session_it = sessions_.begin();
   if (session_it == sessions_.end()) {
     TMapDException ex;
     ex.error_msg = "Session not valid.";

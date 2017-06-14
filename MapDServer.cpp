@@ -463,12 +463,12 @@ int main(int argc, char** argv) {
     std::cerr << "Failed to open PID file " << lock_file << ". " << strerror(errno) << "." << std::endl;
     return 1;
   }
-  if (lockf(pid_fd, F_TLOCK, 0) == -1) {
-    std::cerr << "Another MapD Server is using data directory " << boost::filesystem::path(base_path) << "."
-              << std::endl;
-    close(pid_fd);
-    return 1;
-  }
+//   if (lockf(pid_fd, F_TLOCK, 0) == -1) {
+//     std::cerr << "Another MapD Server is using data directory " << boost::filesystem::path(base_path) << "."
+//               << std::endl;
+//     close(pid_fd);
+//     return 1;
+//   }
   if (ftruncate(pid_fd, 0) == -1) {
     std::cerr << "Failed to truncate PID file " << lock_file << ". " << strerror(errno) << "." << std::endl;
     close(pid_fd);
